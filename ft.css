@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-image: url('g.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+    background-color: rgba(54, 148, 135, 0.795); 
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+
+h2 {
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgba(207, 107, 25, 0.795); 
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(143, 142, 137, 0.9); 
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+button {
+    background-color: #036914;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c2550d;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background-color: rgba(194, 182, 182, 0.8);
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+#addContactForm {
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(143, 108, 108, 0.9);
+    margin-bottom: 20px;
+}
