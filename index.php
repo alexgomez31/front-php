@@ -1,9 +1,5 @@
 <?php
-	/*
-		Web Service RESTful en PHP con MySQL (CRUD)
-		Marko Robles
-		Códigos de Programación
-	*/
+	
 	include 'conexion.php';
 	
 	$pdo = new Conexion();
@@ -49,19 +45,31 @@
 		}
 	}
 	
-	//Actualizar registro
-	if($_SERVER['REQUEST_METHOD'] == 'PUT')
-	{		
-		$sql = "UPDATE contactos SET nombre=:nombre, telefono=:telefono, email=:email WHERE id=:id";
-		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':nombre', $_GET['nombre']);
-		$stmt->bindValue(':telefono', $_GET['telefono']);
-		$stmt->bindValue(':email', $_GET['email']);
-		$stmt->bindValue(':id', $_GET['id']);
-		$stmt->execute();
-		header("HTTP/1.1 200 Ok");
-		exit;
+
+
+
+	// Actualizar registro
+if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+	
+	$requestData = json_decode(file_get_contents('php://input'), true);
+	
+	
+	if ($requestData) {
+	  $sql = "UPDATE contactos SET nombre=:nombre, telefono=:telefono, email=:email WHERE id=:id";
+	  $stmt = $pdo->prepare($sql);
+	  $stmt->bindValue(':nombre', $requestData['nombre']);
+	  $stmt->bindValue(':telefono', $requestData['telefono']);
+	  $stmt->bindValue(':email', $requestData['email']);
+	  $stmt->bindValue(':id', $_GET['id']);
+	  $stmt->execute();
+	  header("HTTP/1.1 200 Ok");
+	  exit;
 	}
+	
+	header("HTTP/1.1 400 Bad Request");
+	exit;
+  }
+  
 	
 	//Eliminar registro
 	if($_SERVER['REQUEST_METHOD'] == 'DELETE')
@@ -74,6 +82,6 @@
 		exit;
 	}
 	
-	//Si no corresponde a ninguna opción anterior
+	
 	header("HTTP/1.1 400 Bad Request");
 ?>

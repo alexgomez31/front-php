@@ -1,15 +1,10 @@
 <?php
-	/*
-		Clase de conexión a MySQL con PDO
-		Marko Robles
-		Códigos de Programación
-	*/
 	class Conexion extends PDO
 	{
 		private $hostBd = 'localhost';
-		private $nombreBd = 'web_service';
-		private $usuarioBd = 'root';
-		private $passwordBd = 'password';
+		private $nombreBd = 'usuario';
+		private $usuarioBd = 'root'; 
+		private $passwordBd = '';
 		
 		public function __construct()
 		{
